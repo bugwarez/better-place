@@ -1,0 +1,43 @@
+import { Post } from '@/types/Post';
+
+export const posts: Post[] = [
+  {
+    id: 3,
+    owner: 3,
+    type: 'media',
+    text: 'My New Car!! 🚗 #NewCar',
+    media: 'https://source.unsplash.com/random/1440x900/?car',
+    mediaType: 'image',
+    upvotes: 11213,
+    downvotes: 1223,
+    comments: 53,
+    shares: 2,
+    timestamp: '2023-08-15T12:10:00',
+  },
+  {
+    id: 2,
+    owner: 2,
+    type: 'media',
+    text: 'Check out this stunning sunset I captured! 🌅 #SunsetMagic',
+    media: 'https://source.unsplash.com/random/1440x900/?sunset',
+    mediaType: 'image',
+    upvotes: 1502,
+    downvotes: 446,
+    comments: 18,
+    shares: 14,
+    timestamp: '2023-08-15T01:33:00',
+  },
+  {
+    id: 1,
+    owner: 1,
+    type: 'media',
+    text: 'Just had a great hiking trip over the weekend! 🏞️ #NatureLovers',
+    media: 'https://source.unsplash.com/random/1440x900/?hiking',
+    mediaType: 'image',
+    upvotes: 5226,
+    downvotes: 223,
+    comments: 12,
+    shares: 7,
+    timestamp: '2023-08-15T00:00:00',
+  },
+];
