@@ -1,17 +1,19 @@
 package main
 
 import (
+	"betterplace/configs"
+	"betterplace/routes"
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
 	router := gin.Default()
 
-	router.GET("/ping", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"msg": "pong",
-		})
-	})
+	//run database
+	configs.ConnectDB()
 
-	router.Run(":3001")
+	//!Routes
+	routes.UserRoute(router)
+
+	router.Run("localhost:3001")
 }
