@@ -34,8 +34,22 @@ func CreateUser() gin.HandlerFunc {
 		}
 
 		newUser := models.User{
-			Username: user.Username,
-			Email:    user.Email,
+			Username:   user.Username,
+			Password:   user.Password,
+			Name:       user.Name,
+			Email:      user.Email,
+			Bio:        user.Bio,
+			Website:    user.Website,
+			Avatar:     user.Avatar,
+			Banner:     user.Banner,
+			Followers:  user.Followers,
+			Following:  user.Following,
+			Posts:      user.Posts,
+			Likes:      user.Likes,
+			Reposts:    user.Reposts,
+			IsVerified: user.IsVerified,
+			CreatedAt:  time.Now(),
+			UpdatedAt:  time.Now(),
 		}
 
 		result, err := userCollection.InsertOne(ctx, newUser)
@@ -87,7 +101,7 @@ func UpdateUserById() gin.HandlerFunc {
 			return
 		}
 
-		update := bson.M{"_id": objId, "username": user.Username, "email": user.Email}
+		update := bson.M{"username": user.Username, "email": user.Email, "name": user.Name, "bio": user.Bio, "website": user.Website, "avatar": user.Avatar, "banner": user.Banner, "followers": user.Followers, "following": user.Following, "posts": user.Posts, "likes": user.Likes, "reposts": user.Reposts, "is_verified": user.IsVerified, "updated_at": time.Now()}
 		result, err := userCollection.UpdateOne(ctx, bson.M{"_id": objId}, bson.M{"$set": update})
 		if err != nil {
 			c.JSON(http.StatusInternalServerError, responses.UserResponse{Status: http.StatusInternalServerError, Message: "error", Data: map[string]interface{}{"data": err.Error()}})
